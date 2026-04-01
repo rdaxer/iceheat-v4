@@ -3,31 +3,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>IceHeat v4</title>
 
+    <link rel="stylesheet" href="styles.css">
+
     <!-- PWA -->
-    manifest.json
+    <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#0ea5e9" />
 
-    <!-- STYLES -->
-    styles.css
+    <!-- OpenCV -->
+    <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
 
-    <!-- LIBRARIES (CDN) -->
-    <!-- OpenCV.js (automatische Farberkennung / Zellenfinder) -->
-    https://docs.opencv.org/4.x/opencv.js>
-
-    <!-- Tesseract.js (OCR für Startnummern) -->
-    https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js
-
+    <!-- Tesseract OCR -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 </head>
 
 <body>
     <div id="app">
 
-        <!-- HEADER -->
         <header class="topbar">
             <div class="logo">ICE<span>HEAT</span></div>
+
             <nav class="tabs">
                 <button data-page="drivers">Fahrer</button>
                 <button data-page="heats">Heats</button>
@@ -36,65 +32,56 @@
             </nav>
         </header>
 
-        <!-- PAGES -->
         <main id="pages">
 
-            <!-- DRIVERS PAGE -->
             <section id="page-drivers" class="page active">
                 <h2>Fahrer</h2>
                 <button id="addDriver">+ Fahrer hinzufügen</button>
                 <div id="driverList"></div>
             </section>
 
-            <!-- HEATS PAGE -->
             <section id="page-heats" class="page">
                 <h2>Heats</h2>
                 <button id="addHeat">+ Heat hinzufügen</button>
                 <div id="heatList"></div>
             </section>
 
-            <!-- RESULTS PAGE -->
             <section id="page-results" class="page">
                 <h2>Ergebnisse</h2>
                 <div id="resultsTable"></div>
             </section>
 
-            <!-- SCAN PAGE -->
             <section id="page-scan" class="page">
                 <h2>Heatschema scannen</h2>
 
                 <div class="scan-box">
                     <input type="file" id="scanInput" accept="image/*" capture="environment" />
-                    <canvas id="scanCanvas"></canvas>
+                    <canvas id="scanCanvas" width="800" height="600"></canvas>
                 </div>
 
                 <button id="startScan" class="primary-btn">Scan starten</button>
                 <div id="scanStatus"></div>
-
-                <h3>Erkanntes Schema</h3>
                 <pre id="scanOutput"></pre>
             </section>
 
         </main>
-
     </div>
 
-    <!-- APP SCRIPTS -->
-    ../src/app.js
-    ../src/router.js
-    ../src/state.js
-    ../src/storage.js
+    <!-- SCRIPTS -->
+    <script src="src/app.js" type="module"></script>
+    <script src="src/router.js" type="module"></script>
+    <script src="src/state.js" type="module"></script>
+    <script src="src/storage.js" type="module"></script>
 
-    ../src/ui/drivers.js
-    ../src/ui/heats.js
-    ../src/ui/results.jsscript>
-    ../src/ui/scanner.js
+    <script src="src/ui/drivers.js" type="module"></script>
+    <script src="src/ui/heats.js" type="module"></script>
+    <script src="src/ui/results.js" type="module"></script>
+    <script src="src/ui/scanner.js" type="module"></script>
 
-    ../src/vision/scan-engine.js
-    ../src/vision/color-detection.js
-    ../src/vision/cell-segmentation.js
-    ../src/vision/ocr.js
-    ../src/vision/heat-reconstruction.js>
-
+    <script src="src/vision/scan-engine.js" type="module"></script>
+    <script src="src/vision/color-detection.js" type="module"></script>
+    <script src="src/vision/cell-segmentation.js" type="module"></script>
+    <script src="src/vision/heat-reconstruction.js" type="module"></script>
+    <script src="src/vision/ocr.js" type="module"></script>
 </body>
 </html>
